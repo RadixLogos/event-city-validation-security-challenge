@@ -44,9 +44,9 @@ public class CityControllerIT {
 	@BeforeEach
 	void setUp() throws Exception {
 		
-		clientUsername = "ana@gmail.com";
+		clientUsername = "bob@gmail.com";
 		clientPassword = "123456";
-		adminUsername = "bob@gmail.com";
+		adminUsername = "ana@gmail.com";
 		adminPassword = "123456";
 		clientToken = tokenUtil.obtainAccessToken(mockMvc, clientUsername, clientPassword);
 		adminToken = tokenUtil.obtainAccessToken(mockMvc, adminUsername, adminPassword);
@@ -54,7 +54,7 @@ public class CityControllerIT {
 	}
 
 	@Test
-	public void insertShouldReturn401WhenIvalidToken() throws Exception {
+	public void insertShouldReturn401WhenInvalidToken() throws Exception {
 
 		CityDTO dto = new CityDTO(null, "Recife");
 		String jsonBody = objectMapper.writeValueAsString(dto);

@@ -1,5 +1,7 @@
 package com.devsuperior.bds04.dto.errors;
 
+import com.devsuperior.bds04.dto.FieldMessage;
+
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +18,7 @@ public class ValidationError extends CustomError{
     }
 
     public void addErrors(String field, String message){
-        errors.removeIf(x -> x.field().equals(field));
+        errors.removeIf(x -> x.fieldName().equals(field));
         errors.add(new FieldMessage(field,message));
     }
 }
